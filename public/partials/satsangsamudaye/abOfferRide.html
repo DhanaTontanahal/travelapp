@@ -1,0 +1,78 @@
+<button style="float: right;" ng-click="signOutTheUser()">Home</button>
+
+<button class="menuBtn">View Entries</button>
+
+<button class="headerBtn">Select Date </button>
+
+<p class="input-group">
+    <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="travelDate" is-open="openedF"
+        min-date="minDate" max-date="dtmax" datepicker-options="dateOptions" ng-change="changeSelectF(travelDate)"
+        date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+    <span class="input-group-btn">
+
+        <button type="button" class="btn btn-default" ng-click="openF($event)">
+            <i class="glyphicon glyphicon-calendar"></i></button>
+    </span>
+</p>
+
+<button style="margin-left: 50%;" ng-click="submitViewEntries()" class="btn btn-primary">Submit </button>
+
+
+<div class="row">
+    <div class="column">
+
+
+        <h2>Offered Rides</h2>
+
+        <table>
+            <tr>
+                <th>From</th>
+                <th>To</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Seats</th>
+            </tr>
+            <tr ng-repeat="x in offferedRides">
+                <td>{{x.fromLoc}}</td>
+                <td>{{x.toLoc}}</td>
+                <td>{{x.travelDate}}</td>
+                <td>{{x.travelTime}}</td>
+                <td>{{x.numOfSeats}}</td>
+            </tr>
+
+        </table>
+
+
+
+
+    </div>
+    <div class="column">
+
+
+        <h2>Requested Rides</h2>
+
+        <table>
+            <tr>
+                <th>From</th>
+                <th>To</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Primary traveller name</th>
+                <th>Primary traveller contact</th>
+            </tr>
+
+            <tr ng-repeat="x in requestedRides">
+                <td>{{x.fromLoc}}</td>
+                <td>{{x.toLoc}}</td>
+                <td>{{x.travelDate}}</td>
+                <td>{{x.travelTime}}</td>
+                <td>{{x.nameOfTraveller1}}</td>
+                <td>{{x.contactNum1}}</td>
+
+            </tr>
+        </table>
+
+
+
+    </div>
+</div>

@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="lib/please-wait/please-wait.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/1.0.1/css/ngDialog.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/1.0.1/css/ngDialog-theme-default.min.css">
+  <title>Satsangis</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.7.0/angular-touch.js"></script>
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="lib/angular-ui-grid/ui-grid.css">
+
+  <script lang="javascript" src="/lib/xlsx/dist/xlsx.full.min.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+  <script src="/lib/ta/bootstrap3-typeahead.min.js"></script>
+  <script src="https://underscorejs.org/underscore-min.js"></script>
+
+
+  <link rel="stylesheet" href="lib/ng-dialog/css/ngDialog.css">
+  <link rel="stylesheet" href="lib/angular-print/angularPrint.css">
+  <link rel="stylesheet" href="lib/ng-dialog/css/ngDialog-theme-default.css">
+  <link rel="stylesheet" href="lib/ng-dialog/css/ngDialog-theme-plain.css">
+  <link rel="stylesheet" href="lib/ng-dialog/css/ngDialog-custom-width.css">
+  <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+  <script src="semantic/dist/semantic.min.js"></script>
+  <script src="/lib/angular/angular.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.3.2/firebase.js"></script>
+  <script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
+
+  <script src="lib/chart.js/dist/Chart.min.js"></script>
+  <script src="lib/angular-chart.js/dist/angular-chart.min.js"></script>
+
+
+  <style>
+    
+  </style>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyDRDbzX6fDIKeOCSQoMCJ2fkBmrkqAN7Xk",
+      authDomain: "entrycars-2698e.firebaseapp.com",
+      databaseURL: "https://entrycars-2698e.firebaseio.com",
+      projectId: "entrycars-2698e",
+      storageBucket: "entrycars-2698e.appspot.com",
+      messagingSenderId: "140723760223",
+      appId: "1:140723760223:web:e374e8c33dbe68e08bffea"
+    };
+
+
+    firebase.initializeApp(firebaseConfig);
+
+    var logout = function () {
+      console.log("logging out...");
+      firebase.auth().signOut();
+      document.getElementById("logoutBtn").style.display = "none";
+      window.location.reload();
+
+    }
+
+    var reload = function () {
+      window.location.reload();
+    }
+
+
+    $(function () {
+      $('ul.nav li').on('click', function () {
+        $(this).parent().find('li.active').removeClass('active');
+        $(this).addClass('active');
+      });
+    });
+
+    function detectmob() {
+      if (navigator.userAgent.match(/Android/i)
+        || navigator.userAgent.match(/webOS/i)
+        || navigator.userAgent.match(/iPhone/i)
+        || navigator.userAgent.match(/iPad/i)
+        || navigator.userAgent.match(/iPod/i)
+        || navigator.userAgent.match(/BlackBerry/i)
+        || navigator.userAgent.match(/Windows Phone/i)
+        || window.innerWidth <= 800 && window.innerHeight <= 60
+      ) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+
+  </script>
+
+  <script src="/lib/angucomplete/angucomplete-alt.min.js"></script>
+  <script src="/lib/pdf/csv.js"></script>
+  <script src="/lib/pdf/pdfmake.js"></script>
+  <script src="/lib/pdf/vfs_fonts.js"></script>
+  <script src="/lib/angular-toarrayfilter/toArrayFilter.js"></script>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+</head>
+
+<body>
+
+  <span us-spinner="{radius:25, width:8, length: 16}"></span>
+  <!-- <header>Satsangis Travel</header> -->
+
+  <div data-ng-view></div>
+
+  <script src="https://cdn.rawgit.com/serratus/quaggaJS/0420d5e0/dist/quagga.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.5.0/annyang.min.js"></script>
+  <script src="lib/requirejs/require.js" data-main="scripts/main.js"></script>
+
+
+</body>
+
+</html>
+<div ng-show="signedIn" style="position: absolute; right: 0;top:0;" class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+    <a class="glyphicon glyphicon-user" href="#">&nbsp;{{loggedInAs}}</a>
+    <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li>
+      <a id="logoutBtn" onclick="logout()" href="#"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Logout</a>
+    </li>
+  </ul>
+</div>
