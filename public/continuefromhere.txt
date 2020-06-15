@@ -1,0 +1,34 @@
+ var dateObj = new Date();
+    var month = dateObj.getMonth();
+    var day = dateObj.getDate();
+
+  
+
+var monthMAp = {
+  "0":"Jan",
+  "1":"Feb",
+  "2":"Mar",
+  "3":"Apr",
+  "4":"May",
+  "5":"Jun",
+  "6":"Jul",
+  "7":"Aug",
+  "8":"Sep",
+  "9":"Oct",
+  "10":"Nov",
+  "11":"Dec"
+}
+
+// console.log(monthMAp[5])
+var monthArr = [];
+  for(var i = 0 ; i < 31-day ; i++){
+        // console.log(monthMAp[month]+"-"+Number(i+day))
+        monthArr.push(monthMAp[month]+"-"+Number(i+day))
+    }
+
+    console.log(monthArr);
+    
+
+
+planned to place date picker with dropdownof dates and other changes , check whatsapp
+also attendance system , change to generic url and also fix issue in selection
