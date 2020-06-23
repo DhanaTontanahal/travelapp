@@ -4,7 +4,7 @@
 
 <button class="headerBtn">Select Date </button>
 
-<p class="input-group">
+<!-- <p class="input-group">
     <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="travelDate" is-open="openedF"
         min-date="minDate" max-date="dtmax" datepicker-options="dateOptions" ng-change="changeSelectF(travelDate)"
         date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
@@ -13,7 +13,11 @@
         <button type="button" class="btn btn-default" ng-click="openF($event)">
             <i class="glyphicon glyphicon-calendar"></i></button>
     </span>
-</p>
+</p> -->
+
+<select class="form-control" ng-model="travelDate"  ng-options="rideDate for rideDate in datesToBeDisplayed">
+</select>
+
 
 <button style="margin-left: 50%;" ng-click="submitViewEntries()" class="btn btn-primary">Submit </button>
 

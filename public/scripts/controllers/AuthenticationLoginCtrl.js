@@ -3,6 +3,66 @@ define(['./module'], function (controllers) {
   controllers.controller('AuthenticationLoginCtrl', ['$filter', '$timeout', 'AuthService', '$rootScope', '$scope', '$window', '$location', function ($filter, $timeout, AuthService, $rootScope, $scope, $window, $location) {
 
 
+    var dateObj = new Date();
+    var month = dateObj.getMonth();
+    var nextMonth = dateObj.getMonth()+1;
+    var day = dateObj.getDate();
+
+var monthMAp = {
+  "0":"Jan",
+  "1":"Feb",
+  "2":"Mar",
+  "3":"Apr",
+  "4":"May",
+  "5":"Jun",
+  "6":"Jul",
+  "7":"Aug",
+  "8":"Sep",
+  "9":"Oct",
+  "10":"Nov",
+  "11":"Dec"
+}
+
+// console.log(monthMAp[5])
+var monthArr = [];
+  for(var i = 0 ; i < 31-day ; i++){
+        // console.log(monthMAp[month]+"-"+Number(i+day))
+        monthArr.push(monthMAp[month]+"-"+Number(i+day))
+    }
+
+var nextMonthArr = [];
+for(var i = 1 ; i < 31 ; i++){
+      nextMonthArr.push(monthMAp[nextMonth]+"-"+Number(i))
+    }
+
+    // console.log(monthArr.concat(nextMonthArr));
+    
+$scope.datesToBeDisplayed=monthArr.concat(nextMonthArr);
+
+var timeVal;
+var timeValArr = [];
+ for(var i = 0 ; i <= 24 ;  i++){
+   for(var j = 0 ; j < 2 ; j++){
+     if(j == 0)
+     {
+       timeVal = i+":"+"00 HRS"
+     }
+     if(j == 1 && i !== 24)
+     {
+       timeVal = i+":"+"30 HRS"
+     }
+    //  console.log(timeVal);
+     timeValArr.push(timeVal)
+   }
+   
+ }
+
+ $scope.timeValArr = timeValArr;
+
+
+
+
+
     $scope.showOfferRide = false;
     $scope.showFindRide = false;
     $scope.viewEntries = false;

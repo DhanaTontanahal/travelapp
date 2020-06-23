@@ -41,7 +41,7 @@
 
 
   <style>
-    
+
   </style>
   <script>
     const firebaseConfig = {
@@ -94,6 +94,30 @@
       }
     }
 
+
+
+
+
+    function openLeftMenu() {
+      document.getElementById("leftMenu").style.display = "block";
+    }
+
+    function closeLeftMenu() {
+      document.getElementById("leftMenu").style.display = "none";
+    }
+
+    function openRightMenu() {
+      document.getElementById("rightMenu").style.display = "block";
+    }
+
+    function closeRightMenu() {
+      document.getElementById("rightMenu").style.display = "none";
+    }
+
+
+
+
+
   </script>
 
   <script src="/lib/angucomplete/angucomplete-alt.min.js"></script>
@@ -102,10 +126,29 @@
   <script src="/lib/pdf/vfs_fonts.js"></script>
   <script src="/lib/angular-toarrayfilter/toArrayFilter.js"></script>
   <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
 </head>
 
 <body>
+  <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="leftMenu">
+    <button onclick="closeLeftMenu()" class="w3-bar-item w3-button w3-large">Close &times;</button>
+    <a href="#" class="w3-bar-item w3-button">Area Contacts</a>
+    <a href="#" class="w3-bar-item w3-button">9560579966</a>
+    <a href="#" class="w3-bar-item w3-button">999999999</a>
+
+  </div>
+
+
+
+  <div class="w3-teal">
+    <button class="w3-button w3-teal w3-xlarge w3-left" onclick="openLeftMenu()">&#9776;</button>
+    <div class="w3-container">
+      <h1 style="padding:3px;font-weight: bold;text-align: center;">Travel App</h1>
+    </div>
+  </div>
+
 
   <span us-spinner="{radius:25, width:8, length: 16}"></span>
   <!-- <header>Satsangis Travel</header> -->

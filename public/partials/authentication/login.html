@@ -1,26 +1,16 @@
 <div class="panel panel-default">
-  <div class="panel-heading">
-    <h2 style="text-align: center;">Travel App.</h2>
-  </div>
+
   <button class="menuBtn" ng-click="toggleOfferRide()">Offer Ride </button>
   <br />
   <div ng-show="showOfferRide">
     <button class="headerBtn">Travel Date </button>
-
-    <p class="input-group">
-      <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="offerRide.travelDate" is-open="openedF"
-        min-date="minDate" max-date="dtmax" datepicker-options="dateOptions" ng-change="changeSelectF1(offerRide.travelDate)"
-        date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
-      <span class="input-group-btn">
-
-        <button type="button" class="btn btn-default" ng-click="openF($event)">
-          <i class="glyphicon glyphicon-calendar"></i></button>
-      </span>
-    </p>
-
-    <br />
+    <select class="form-control" ng-model="offerRide.travelDate" ng-change="changerideDate()" ng-options="rideDate for rideDate in datesToBeDisplayed">
+    </select>
     <button class="headerBtn">Travel Time </button>
-    <input ng-model="offerRide.travelTime" class="form-control" type="text" placeholder="Enter expected start time" />
+    <select class="form-control" ng-model="offerRide.travelTime" ng-change="changerideTime()" ng-options="rideTime for rideTime in timeValArr">
+    </select>
+
+    <!-- <input ng-model="offerRide.travelTime" class="form-control" type="text" placeholder="Enter expected start time" /> -->
     <br />
     <button class="headerBtn">Source </button>
     <div class="form-group">
@@ -71,21 +61,12 @@
   <div ng-show="showFindRide">
     <button class="headerBtn">Travel Date </button>
 
-    <p class="input-group">
-      <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="findRide.travelDate" is-open="openedF"
-        min-date="minDate" max-date="dtmax" datepicker-options="dateOptions" ng-change="changeSelectF(findRide.travelDate)"
-        date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
-      <span class="input-group-btn">
-
-        <button type="button" class="btn btn-default" ng-click="openF($event)">
-          <i class="glyphicon glyphicon-calendar"></i></button>
-      </span>
-    </p>
-
-    <br />
+    <select class="form-control" ng-model="findRide.travelDate" ng-options="rideDate for rideDate in datesToBeDisplayed">
+    </select>
     <button class="headerBtn">Travel Time </button>
-    <input ng-model="findRide.travelTime" class="form-control" type="text" placeholder="Enter expected start time" />
-    <br />
+    <select class="form-control" ng-model="findRide.travelTime" ng-options="rideTime for rideTime in timeValArr">
+    </select>
+
     <button class="headerBtn">Source </button>
     <div class="form-group">
       <div ng-show="showErrorForNullFromLoc" class="alert alert-danger">
